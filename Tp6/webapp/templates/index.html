@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Encuesta Equipo de Futbol</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/estilo.css">
+  <script src="/static/script.js"></script>
+</head>
+<body class="bg-light">
+
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Encuesta Equipo de Futbol</h1>
+
+    <div class="text-center mb-4">
+      <img src="https://www.uncuyo.edu.ar/assets/imgs/logo_uncu23.png" width="200">
+    </div>
+
+    <div class="text-center mt-3">
+      <a href="/ver-resultados" class="btn btn-outline-secondary">Ver resultados</a>
+    </div>
+    
+
+    <form method="POST" action="/procesar" onsubmit="return validar();" class="bg-white p-4 rounded shadow-sm">
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="text" class="form-control" name="email" id="email" placeholder="ejemplo@correo.com">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">¿Cuál es tu equipo favorito?</label><br>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" name="opcion" value="Platense" id="platense">
+          <label class="form-check-label" for="platense">
+            <img src="https://www.ligaprofesional.ar/wp-content/uploads/2024/06/PLA-escudo-1024x999.png" width="40"> Platense
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="radio" class="form-check-input" name="opcion" value="Boca Juniors" id="boca">
+          <label class="form-check-label" for="boca">
+            <img src="https://www.ligaprofesional.ar/wp-content/uploads/2024/06/BOC-escudo.png" width="40"> Boca Juniors
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="radio" class="form-check-input" name="opcion" value="River Plate" id="river">
+          <label class="form-check-label" for="river">
+            <img src="https://www.ligaprofesional.ar/wp-content/uploads/2024/06/RIV-escudo-1024x1024.png" width="40"> River Plate
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="radio" class="form-check-input" name="opcion" value="Independiente" id="indep">
+          <label class="form-check-label" for="indep">
+            <img src="https://www.ligaprofesional.ar/wp-content/uploads/2024/06/IND-escudo.png" width="40"> Independiente
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="radio" class="form-check-input" name="opcion" value="Racing" id="racing">
+          <label class="form-check-label" for="racing">
+            <img src="https://www.ligaprofesional.ar/wp-content/uploads/2024/06/RAC-escudo.png" width="40"> Racing
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="radio" class="form-check-input" name="opcion" value="Independiente Rivadavia" id="lepra">
+          <label class="form-check-label" for="lepra">
+            <img src="https://www.ligaprofesional.ar/wp-content/uploads/2023/12/INDR-escudo.png" width="40"> Independiente Rivadavia
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input type="radio" class="form-check-input" name="opcion" value="Godoy Cruz" id="tomba">
+          <label class="form-check-label" for="tomba">
+            <img src="https://www.ligaprofesional.ar/wp-content/uploads/2024/06/GOD-escudo.png" width="40"> El tombita
+          </label>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <input type="submit" class="btn btn-primary" value="Enviar">
+      </div>
+
+    </form>
+  </div>
+
+</body>
+</html>
