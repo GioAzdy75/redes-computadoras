@@ -9,7 +9,8 @@
   <div class="container mt-5">
     <h2 class="text-center mb-4">Resultados de la encuesta</h2>
 
-    <ul class="list-group">
+    <!-- Este UL va a ser reemplazado dinámicamente -->
+    <ul id="resultados" class="list-group">
       {% for opcion, votos in estadisticas.items() %}
         <li class="list-group-item d-flex justify-content-between align-items-center">
           {{ opcion }}
@@ -22,6 +23,27 @@
       <a href="/" class="btn btn-secondary">Volver a votar</a>
     </div>
   </div>
+
+  <script>
+    const ws = new WebSocket((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/ws");
+
+    ws.onmessage = function(event) {
+      const data = JSON.parse(event.data);
+      const lista = document.getElementById("resultados");
+      if (!lista) return;
+
+      lista.innerHTML = "";
+      for (const [opcion, votos] of Object.entries(data)) {
+        const li = document.createElement("li");
+        li.className = "list-group-item d-flex justify-content-between align-items-center";
+        li.innerHTML = `
+          <span>${opcion}</span>
+          <span class="badge bg-primary rounded-pill">${votos} votos</span>
+        `;
+        lista.appendChild(li);
+      }
+    };
+  </script>
 
 </body>
 </html>
