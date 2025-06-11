@@ -1,8 +1,8 @@
 # cliente_tcp.py
 import socket
 
-SERVIDOR = '127.0.0.1'  # Cambiar si se conecta a otra PC
-PUERTO = 1500
+SERVIDOR = '10.65.4.119'  # Cambiar si se conecta a otra PC
+PUERTO = 12344
 
 def main():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as cliente:
@@ -15,7 +15,7 @@ def main():
             print("El servidor no encontró el archivo.")
             return
 
-        with open("archivo_recibido_" + nombre_archivo, "wb") as f:
+        with open(nombre_archivo, "wb") as f:
             while True:
                 datos = cliente.recv(1024)
                 if not datos:
